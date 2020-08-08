@@ -33,21 +33,10 @@ let shoeStyle = {
   howToStyle: style
 };
 
-let docCount = {
-  1: model.Option1.estimatedDocumentCount(),
-  // 2: model.Option2.estimatedDocumentCount(),
-  // 3: model.Option3.estimatedDocumentCount(),
-  // 4: model.Option4.estimatedDocumentCount(),
-};
-
-// if (docCount[1] < 25 && docCount[2] < 25 && docCount[3] < 25 && docCount[4] < 25) {
-//   model.save(shoeStyle);
-// }
-
 const seedData = () => {
   for (let i = 0; i < 100; i++) {
     model.Option1.create(shoeStyle);
   }
 };
 
-seedData();
+// seedData();

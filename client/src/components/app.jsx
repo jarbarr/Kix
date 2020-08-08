@@ -1,6 +1,7 @@
 import React from 'react';
 import LeftArrow from './leftArrow.jsx';
 import RightArrow from './rightArrow.jsx';
+import Carousel from './carousel.jsx';
 const axios = require('axios');
 const endpoint = '/kix';
 
@@ -9,7 +10,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 0
+      page: 0,
+      imgSlides: [],
+      thumbNails: [],
+      options: [],
+
+
     };
     this.fetchDefaultData = this.fetchDefaultData.bind(this);
     this.clickColorOption = this.clickColorOption.bind(this);
@@ -32,9 +38,17 @@ class App extends React.Component {
   changeStyle() {
 
   }
-  componentDidMount() {
-    this.fetchDefaultData();
+  scrollRight() {
+
   }
+  scrollLeft() {
+
+  }
+
+  componentDidMount() {
+    // this.fetchDefaultData();
+  }
+
   render() {
     return (
       <div>

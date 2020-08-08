@@ -1,20 +1,21 @@
 const schema = require('./index.js');
 const mongoose = require('mongoose');
 
-// each model is an instance of the schema related to the particular color choice or 'option'
-const Option1 = mongoose.model('Option1', schema);
-// const Option2 = mongoose.model('Option2', schema);
-// const Option3 = mongoose.model('Option3', schema);
-// const Option4 = mongoose.model('Option4', schema);
+// each model is an instance of the schema or carousel
+// each document is related to the color choices
+const ShoeStyle1 = mongoose.model('ShoeStyle1', schema);
+// const ShoeStyle2 = mongoose.model('ShoeStyle2', schema);
+// const ShoeStyle3 = mongoose.model('ShoeStyle3', schema);
+// const ShoeStyle4 = mongoose.model('ShoeStyle4', schema);
 
 module.exports = {
   save: (data, callback) => {
-    const shoeStyle1 = new Option1(data);
-    // const shoeStyle2 = new Option2(data);
-    // const shoeStyle3 = new Option3(data);
-    // const shoeStyle4 = new Option4(data);
+    const shoeColor1 = new ShoeStyle1(data);
+    // const shoeColor2 = new ShoeStyle2(data);
+    // const shoeColor3 = new ShoeStyle3(data);
+    // const shoeColor4 = new ShoeStyle4(data);
 
-    shoeStyle1.save((err) => {
+    shoeColor1.save((err) => {
       if (err) {
         callback(err, null);
       } else {
@@ -22,7 +23,7 @@ module.exports = {
         callback(null, data);
       }
     });
-    // shoeStyle2.save((err) => {
+    // shoeColor2.save((err) => {
     //   if (err) {
     //     callback(err, null);
     //   } else {
@@ -30,7 +31,7 @@ module.exports = {
     //     callback(null, data);
     //   }
     // });
-    // shoeStyle3.save((err) => {
+    // shoeColor3.save((err) => {
     //   if (err) {
     //     callback(err, null);
     //   } else {
@@ -38,7 +39,7 @@ module.exports = {
     //     callback(null, data);
     //   }
     // });
-    // shoeStyle4.save((err) => {
+    // shoeColor4.save((err) => {
     //   if (err) {
     //     callback(err, null);
     //   } else {
@@ -47,13 +48,13 @@ module.exports = {
     //   }
     // });
   },
-  Option1: Option1,
-  // Option2: Option2,
-  // Option3: Option3,
-  // Option4: Option4,
+  ShoeStyle1: ShoeStyle1,
+  // ShoeStyle2: ShoeStyle2,
+  // ShoeStyle3: ShoeStyle3,
+  // ShoeStyle4: ShoeStyle4,
 
   count: (request, callback) => {
-    Option1.find({}, null, {limit: 10}, (err, data) => {
+    ShoeStyle1.find({}, null, {limit: 10}, (err, data) => {
       if (err) {
         callback(err, null);
       } else {
@@ -61,59 +62,29 @@ module.exports = {
         callback(null, data);
       }
     });
+  //   ShoeStyle2.estimatedDocumentCount((err, data) => {
+  //     if (err) {
+  //       callback(err, null);
+  //     } else {
+  //       callback(null, data);
+  //     }
+  //   });
+  //   ShoeStyle3.estimatedDocumentCount((err, data) => {
+  //     if (err) {
+  //       callback(err, null);
+  //     } else {
+  //       callback(null, data);
+  //     }
+  //   });
+  //   ShoeStyle4.estimatedDocumentCount((err, data) => {
+  //     if (err) {
+  //       callback(err, null);
+  //     } else {
+  //       callback(null, data);
+  //     }
+  //   });
   }
-  //   Option2.estimatedDocumentCount((err, data) => {
-  //     if (err) {
-  //       callback(err, null);
-  //     } else {
-  //       callback(null, data);
-  //     }
-  //   });
-  //   Option3.estimatedDocumentCount((err, data) => {
-  //     if (err) {
-  //       callback(err, null);
-  //     } else {
-  //       callback(null, data);
-  //     }
-  //   });
-  //   Option4.estimatedDocumentCount((err, data) => {
-  //     if (err) {
-  //       callback(err, null);
-  //     } else {
-  //       callback(null, data);
-  //     }
-  //   });
-  // }
-  // count: () => {
-  //   Option1.estimatedDocumentCount((err, data) => {
-  //     if (err) {
-  //       console.log(err, null);
-  //     } else {
-  //       console.log(null, data);
-  //     }
-  //   });
-  //   Option2.estimatedDocumentCount((err, data) => {
-  //     if (err) {
-  //       console.log(err, null);
-  //     } else {
-  //       console.log(null, data);
-  //     }
-  //   });
-  //   Option3.estimatedDocumentCount((err, data) => {
-  //     if (err) {
-  //       console.log(err, null);
-  //     } else {
-  //       console.log(null, data);
-  //     }
-  //   });
-  //   Option4.estimatedDocumentCount((err, data) => {
-  //     if (err) {
-  //       console.log(err, null);
-  //     } else {
-  //       console.log(null, data);
-  //     }
-  //   });
-  // }
+
   // let search = (req, callback)=>{
 //   Repo.find({stars: {$gte: 0}}, null, {limit:25}, (err, docs)=>{
 //     if (err) {
