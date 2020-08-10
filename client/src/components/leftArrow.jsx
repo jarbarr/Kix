@@ -1,4 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const L = styled.button `
+  cursor: pointer;
+
+`;
 
 class LeftArrow extends React.Component {
   constructor(props) {
@@ -11,7 +17,7 @@ class LeftArrow extends React.Component {
   }
   render() {
     return (
-      <button onClick={this.handleClick}>Click Me</button>
+      <L onClick={this.handleClick}>Click Me</L>
     );
   }
 }

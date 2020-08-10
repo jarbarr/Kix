@@ -1,4 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const R = styled.button `
+  cursor: pointer;
+
+`;
 
 class RightArrow extends React.Component {
   constructor(props) {
@@ -11,7 +17,7 @@ class RightArrow extends React.Component {
   }
   render() {
     return (
-      <button onClick={this.handleClick}>Click Me</button>
+      <R onClick={this.handleClick}>Click Me</R>
     );
   }
 }

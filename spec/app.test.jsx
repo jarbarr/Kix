@@ -8,5 +8,8 @@ describe('wrapper', () => {
   it('should exist', () => {
     expect(wrapper).toBeDefined();
   });
+  it ('should be a class component', () => {
+    expect(wrapper).toBeInstanceOf(Class);
+  });
 
 });

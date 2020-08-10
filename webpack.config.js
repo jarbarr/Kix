@@ -10,11 +10,19 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        // include: path.resolve(__dirname, '/client/src'),
         exclude: '/node_modules/',
         loader: 'babel-loader',
         query: {
           presets: ['@babel/preset-react', '@babel/preset-env']
+        }
+      },
+      {
+        test: /\.css$/i,
+        exclude: '/node_modules/',
+        use: ['style-loader', 'css-loader'],
+        options: {
+          import: true,
+          modules: true
         }
       }
     ]
