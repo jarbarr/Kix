@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Header from '../client/src/components/header.jsx';
+import ImageSlide from '../client/src/components/imageslide.jsx';
 
 
-describe('Header', () => {
+describe('ImageSlide', () => {
   // const wrapper = shallow(<App />);
   it('should exist', () => {
-    expect(Header).toBeDefined();
+    expect(ImageSlide).toBeDefined();
 
   });
 

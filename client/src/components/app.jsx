@@ -1,9 +1,11 @@
 import React from 'react';
-import Carousel from './carousel.jsx';
 import ImageSlide from './imageSlide.jsx';
 import NavBar from './navbar.jsx';
 import styled from 'styled-components';
 import Options from './options.jsx';
+import HighLights from './highlights.jsx';
+import Description from './description.jsx';
+import Details from './details.jsx';
 const axios = require('axios');
 const endpoint = '/kix';
 
@@ -73,13 +75,16 @@ class App extends React.Component {
           <Logo className="logo"src="adidaslogo.png" />
         </div>
         <div>
-          <ImageSlide />
+          <ImageSlide right={this.scrollRight} left={this.scrollLeft}/>
         </div>
         <div>
           <Options />
         </div>
         <div>
           <NavBar />
+        </div>
+        <div>
+          <HighLights />
         </div>
       </Div>
     );
