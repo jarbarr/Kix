@@ -3,16 +3,11 @@ import Carousel from './carousel.jsx';
 import ImageSlide from './imageSlide.jsx';
 import NavBar from './navbar.jsx';
 import styled from 'styled-components';
+import Options from './options.jsx';
 const axios = require('axios');
 const endpoint = '/kix';
 
-// const divStyle = {
-//   color: 'blue'
-// };
-// const logoStyle = {
-//   width: 85,
-//   height: 60
-// };
+
 const Div = styled.div`
 
 `;
@@ -79,6 +74,9 @@ class App extends React.Component {
         </div>
         <div>
           <ImageSlide />
+        </div>
+        <div>
+          <Options />
         </div>
         <div>
           <NavBar />
