@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Details from '../client/src/components/details.jsx';
+import Description from '../client/src/components/description.jsx';
 
 
-const wrapper = shallow(<Details />);
+const wrapper = shallow(<Description />);
 describe('wrapper', () => {
   it('should exist', () => {
     expect(wrapper).toBeDefined();

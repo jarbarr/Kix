@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Higlights from '../client/src/components/highlights.jsx';
+import HighLights from '../client/src/components/highlights.jsx';
 
 
-describe('HightLights', () => {
-  // const wrapper = shallow(<App />);
+describe('wrapper', () => {
+  const wrapper = shallow(<HighLights />);
   it('should exist', () => {
-    expect(HighLights).toBeDefined();
+    expect(wrapper).toBeDefined();
 
   });
 

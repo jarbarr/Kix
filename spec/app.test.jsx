@@ -8,8 +8,17 @@ describe('wrapper', () => {
   it('should exist', () => {
     expect(wrapper).toBeDefined();
   });
-  it ('should be a class component', () => {
-    expect(wrapper).toBeInstanceOf(Class);
+  it ('should have 7 div tags', () => {
+    expect(wrapper.find('div').length).toEqual(7);
+  });
+
+  it ('should render zoom component conditionally through click event', () => {
+    const mock = jest.fn();
+    wrapper.instance().Zoom = mock;
+    const ImageSlide = wrapper.find('ImageSlide');
+    ImageSlide.simulate('click');
+    expect(mock).toHaveBeenCalled();
+
   });
 
 });

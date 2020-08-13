@@ -1,167 +1,104 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Slide = styled.div `
-  backgroundImage:
+const Slide = styled.div`
   position: relative;
-  width: 75%;
-  height: auto
-`;
-const Img = styled.img `
   width: 100%;
+  height: auto;
+  display: flex;
+  max-height: 600px;
+  margin-bottom: 20px;
+  background-color: #eceff0;
+  // z-index: 0;
+`;
+const Pad = styled.div`
+  flex: 1;
+`;
+const Icons = styled.div`
+  // justify-content: column;
+`;
+const MainBody = styled.div `
+  flex: 4;
+  // display: flex;
+  justify-content: column;
+`;
+const Menu = styled.div`
+  margin-top: 20px;
+  margin-left: 10px;
+  display: flex;
+`;
+
+const Direct = styled.button`
+  border: 0px;
+  display: inline-flex;
+  background-color: transparent;
+  text-decoration: underline;
+  text-transform: uppercase;
+  // z-index: 2;
+  &:hover {
+    background-color: black;
+    color: white;
+}
+`;
+
+const Img = styled.img`
+  width: 100%;
+  max-width: 600px;
   height: auto;
   cursor: nesw-resize;
+  z-index: 0;
 `;
-const PopImg = styled.img `
-  width: 100%;
-  height: auto;
-  cursor: vertical-text;
+const Center = styled.div`
+  // z-index: 0;
+  // justify-content: column;
 `;
-const ex = styled.button `
-  height: 50px;
-  width: 50px;
-  border: 1px solid black;
-`;
-const Left = styled.button `
-  position: absolute;
-  top: 40%;
-  left: 2%;
+const Left = styled.button`
   cursor: pointer;
   height: 50px;
   width: 50px;
   border: 1px solid black;
-  background-color: white
+  background-color: white;
+  padding-bottom: 5px;
+  font-size: 30px;
+  // z-index: 1;
+  margin-top: 200px;
+  margin-left: 20px;
 `;
-const Right = styled.button `
-  position: absolute;
-  top: 40%;
-  left: 70%;
+const Right = styled.button`
   cursor: pointer;
   height: 50px;
   width: 50px;
+  margin-top: 250px;
+  margin-left: 100px;
   border: 1px solid black;
-  background-color: white
+  background-color: white;
+  padding-bottom: 5px;
+  font-size: 30px;
+  // z-index: 1;
 `;
-const ThumbNail1 = styled.img `
+
+const ThumbNail = styled.img`
   cursor: pointer;
-  position: absolute;
-  top: 75%;
-  left: 20%;
+  display: inline-flex;
   height:25px;
-  // transform: translated3d(-50px, -50px, -100px);
   width: auto;
-  display: inline;
   margin: 5px;
   border: 1px solid black;
+  z-index: 100;
+  &:hover {
+    border-bottom: 4px solid black;
+  }
 `;
-const ThumbNail2 = styled.img `
-  cursor: pointer;
-  position: absolute;
-  top: 75%;
-  left: 23%;
-  height:25px;
-  // transform: translated3d(-50px, -50px, -100px);
-  width: auto;
-  display: inline;
-  margin: 5px;
-  border: 1px solid black;
+const Collapsed = styled.img`
+  display: inline-flex;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 2px;
+  width: 25px;
+  z-index: 100;
+  border-bottom: 2px solid black;
 `;
-const ThumbNail3 = styled.img `
-  cursor: pointer;
-  position: absolute;
-  top: 75%;
-  left: 26%;
-  height:25px;
-  // transform: translated3d(-50px, -50px, -100px);
-  width: auto;
-  display: inline;
-  margin: 5px;
-  border: 1px solid black;
-`;
-const ThumbNail4 = styled.img `
-  cursor: pointer;
-  position: absolute;
-  top: 75%;
-  left: 29%;
-  height:25px;
-  // transform: translated3d(-50px, -50px, -100px);
-  width: auto;
-  display: inline;
-  margin: 5px;
-  border: 1px solid black;
-`;
-const ThumbNail5 = styled.img `
-  cursor: pointer;
-  position: absolute;
-  top: 75%;
-  left: 32%;
-  height:25px;
-  // transform: translated3d(-50px, -50px, -100px);
-  width: auto;
-  display: inline;
-  margin: 5px;
-  border: 1px solid black;
-`;
-const ThumbNail6 = styled.img `
-  cursor: pointer;
-  position: absolute;
-  top: 75%;
-  left: 35%;
-  height:25px;
-  // transform: translated3d(-50px, -50px, -100px);
-  width: auto;
-  display: inline;
-  margin: 5px;
-  border: 1px solid black;
-`;
-const ThumbNail7 = styled.img `
-  cursor: pointer;
-  position: absolute;
-  top: 75%;
-  left: 38%;
-  height:25px;
-  // transform: translated3d(-50px, -50px, -100px);
-  width: auto;
-  display: inline;
-  margin: 5px;
-  border: 1px solid black;
-`;
-const ThumbNail8 = styled.img `
-  cursor: pointer;
-  position: absolute;
-  top: 75%;
-  left: 41%;
-  height:25px;
-  // transform: translated3d(-50px, -50px, -100px);
-  width: auto;
-  display: inline;
-  margin: 5px;
-  border: 1px solid black;
-`;
-const ThumbNail9 = styled.img `
-  cursor: pointer;
-  position: absolute;
-  top: 75%;
-  left: 44%;
-  height:25px;
-  // transform: translated3d(-50px, -50px, -100px);
-  width: auto;
-  display: inline;
-  margin: 5px;
-  border: 1px solid black;
-`;
-const ThumbNail10 = styled.img `
-  cursor: pointer;
-  position: absolute;
-  top: 75%;
-  left: 47%;
-  height:25px;
-  // transform: translated3d(-50px, -50px, -100px);
-  width: auto;
-  display: inline;
-  margin: 5px;
-  border: 1px solid black;
-`;
+
 
 
 
@@ -170,9 +107,11 @@ class ImageSlide extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      zoom: 0
+      mouseOver: 0
     };
     this.zoom = this.zoom.bind(this);
+    this.renderThumbNails = this.renderThumbNails.bind(this);
+    this.collapseThumbNails = this.collapseThumbNails.bind(this);
   }
 
   clickRight() {
@@ -182,27 +121,47 @@ class ImageSlide extends React.Component {
     this.props.left();
   }
   zoom() {
-    this.setState = ({
-      zoom: 1
-    });
+    this.props.zoom();
+  }
+  renderThumbNails() {
+    this.setState({ mouseOver: 1 });
+  }
+  collapseThumbNails() {
+    this.setState({ mouseOver: 0 });
   }
 
   render() {
     return (
-      <Slide>
-        <Img onClick={this.zoom}src="imageSlide.jpg"></Img>
-        <Left>LEFT</Left>
-        <Right>RIGHT</Right>
-        <ThumbNail1 src="o1.jpg"></ThumbNail1>
-        <ThumbNail2 src="o2.jpg"></ThumbNail2>
-        <ThumbNail3 src="o3.jpg"></ThumbNail3>
-        <ThumbNail4 src="o4.jpg"></ThumbNail4>
-        <ThumbNail5 src="o1.jpg"></ThumbNail5>
-        <ThumbNail6 src="o2.jpg"></ThumbNail6>
-        <ThumbNail7 src="o3.jpg"></ThumbNail7>
-        <ThumbNail8 src="o4.jpg"></ThumbNail8>
-        <ThumbNail9 src="o1.jpg"></ThumbNail9>
-        <ThumbNail10 src="o3.jpg"></ThumbNail10>
+      <Slide onMouseLeave={this.renderThumbNails} onMouseOver={this.collapseThumbNails}>
+        <Pad>
+          <Menu>
+            <Direct>&crarr;BACK</Direct>
+            <Direct>Home</Direct>
+            <Direct>women</Direct>
+            <Direct>shoes</Direct>
+          </Menu>
+          <Left>&larr;</Left>
+        </Pad>
+        <MainBody>
+          <Center>
+            <Img onClick={this.zoom} src="imageSlide.jpg"></Img>
+          </Center>
+          <Icons>
+            {this.state.mouseOver === 0 ? <ThumbNail src="o1.jpg"></ThumbNail> : <Collapsed src="o1.jpg"></Collapsed>}
+            {this.state.mouseOver === 0 ? <ThumbNail src="o1.jpg"></ThumbNail> : <Collapsed src="o1.jpg"></Collapsed>}
+            {this.state.mouseOver === 0 ? <ThumbNail src="o1.jpg"></ThumbNail> : <Collapsed src="o1.jpg"></Collapsed>}
+            {this.state.mouseOver === 0 ? <ThumbNail src="o1.jpg"></ThumbNail> : <Collapsed src="o1.jpg"></Collapsed>}
+            {this.state.mouseOver === 0 ? <ThumbNail src="o1.jpg"></ThumbNail> : <Collapsed src="o1.jpg"></Collapsed>}
+            {this.state.mouseOver === 0 ? <ThumbNail src="o1.jpg"></ThumbNail> : <Collapsed src="o1.jpg"></Collapsed>}
+            {this.state.mouseOver === 0 ? <ThumbNail src="o1.jpg"></ThumbNail> : <Collapsed src="o1.jpg"></Collapsed>}
+            {this.state.mouseOver === 0 ? <ThumbNail src="o1.jpg"></ThumbNail> : <Collapsed src="o1.jpg"></Collapsed>}
+            {this.state.mouseOver === 0 ? <ThumbNail src="o1.jpg"></ThumbNail> : <Collapsed src="o1.jpg"></Collapsed>}
+            {this.state.mouseOver === 0 ? <ThumbNail src="o1.jpg"></ThumbNail> : <Collapsed src="o1.jpg"></Collapsed>}
+          </Icons>
+        </MainBody>
+        <Pad>
+          <Right>&rarr;</Right>
+        </Pad>
       </Slide>
     );
   }
