@@ -33,6 +33,7 @@ const Header = styled.p`
   font-weight: bold;
   padding-bottom: 0px;
   margin-bottom: 0px;
+  text-transform: uppercase;
 `;
 
 const Details = (props) => {

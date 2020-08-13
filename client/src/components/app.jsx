@@ -8,6 +8,7 @@ import Description from './description.jsx';
 import Details from './details.jsx';
 import Zoom from './zoom.jsx';
 import ZoomMore from './zoomMore.jsx';
+import Coupon from './coupon.jsx';
 const axios = require('axios');
 const endpoint = '/kix';
 
@@ -22,6 +23,7 @@ const Banner = styled.div`
 `;
 const LogoDiv = styled.div`
   padding-left: 20px;
+  padding-bottom: 20px;
 `;
 const Body = styled.div`
   display: flex;
@@ -38,6 +40,9 @@ const Logo = styled.img`
   width: auto;
 
 `;
+const Popup = styled.div `
+
+`;
 
 class App extends React.Component {
   constructor(props) {
@@ -48,7 +53,7 @@ class App extends React.Component {
       options: [],
       highLights: { img: [], cap: [] },
       details: '',
-      story: []
+      story: [],
     };
     this.fetchDefaultData = this.fetchDefaultData.bind(this);
     this.clickColorOption = this.clickColorOption.bind(this);
@@ -57,6 +62,7 @@ class App extends React.Component {
     this.zoom = this.zoom.bind(this);
     this.exitZoom = this.exitZoom.bind(this);
     this.zoomMore = this.zoomMore.bind(this);
+    this.coupon = this.coupon.bind(this);
   }
   fetchDefaultData() {
     axios.get(endpoint)
@@ -79,6 +85,16 @@ class App extends React.Component {
   }
   scrollLeft() {
 
+  }
+  coupon() {
+    this.setState({
+      page: 3,
+      imgSlides: [],
+      options: [],
+      highLights: { img: [], cap: [] },
+      details: '',
+      story: [],
+    });
   }
 
   componentDidMount() {
@@ -124,33 +140,48 @@ class App extends React.Component {
           <LogoDiv>
             {this.state.page === 0 ? <Logo className="logo" src="adidaslogo.png" /> : null}
           </LogoDiv>
-          {this.state.page === 0 ? <Banner></Banner> : null}
+          {this.state.page === 0 ? <Banner><Coupon coupon={this.coupon} /></Banner> : null}
+        </Header> : null}
+        {this.state.page === 3 ? <Header>
+          <LogoDiv>
+            {this.state.page === 3 ? <Logo className="logo" src="adidaslogo.png" /> : null}
+          </LogoDiv>
+          {this.state.page === 3 ? <Banner><Coupon coupon={this.coupon} /></Banner> : null}
         </Header> : null}
         <Body>
-          <AppDiv className="app">
-            <div>
-              {this.state.page === 0 ? <ImageSlide zoom={this.zoom} right={this.scrollRight} left={this.scrollLeft} /> : null}
-            </div>
-            <div>
-              {this.state.page === 0 ? <Options /> : null}
-            </div>
-            <div>
-              {this.state.page === 0 ? <NavBar /> : null}
-            </div>
-            <div>
-              {this.state.page === 0 ? <HighLights /> : null}
-            </div>
-            <div>
-              {this.state.page === 0 ? <Description /> : null}
-            </div>
-            <div>
-              {this.state.page === 0 ? <Details /> : null}
-            </div>
-          </AppDiv>
-          <SideBar></SideBar>
+          <PopUp>
+            <Popup />
+            <AppDiv className="app">
+              <div>
+                {this.state.page === 0 ? <ImageSlide zoom={this.zoom} right={this.scrollRight} left={this.scrollLeft} /> : null}
+                {this.state.page === 3 ? <ImageSlide zoom={this.zoom} right={this.scrollRight} left={this.scrollLeft} /> : null}
+              </div>
+              <div>
+                {this.state.page === 0 ? <Options /> : null}
+                {this.state.page === 3 ? <Options /> : null}
+              </div>
+              <div>
+                {this.state.page === 0 ? <NavBar /> : null}
+                {this.state.page === 3 ? <NavBar /> : null}
+              </div>
+              <div>
+                {this.state.page === 0 ? <HighLights /> : null}
+                {this.state.page === 3 ? <HighLights /> : null}
+              </div>
+              <div>
+                {this.state.page === 0 ? <Description /> : null}
+                {this.state.page === 3 ? <Description /> : null}
+              </div>
+              <div>
+                {this.state.page === 0 ? <Details /> : null}
+                {this.state.page === 3 ? <Details /> : null}
+              </div>
+            </AppDiv>
+            <SideBar></SideBar>
+          </PopUp>
         </Body>
-        { this.state.page === 1 ? <Zoom zoomIn={this.zoomMore} exOut={this.exitZoom} /> : null }
-        { this.state.page === 2 ? <ZoomMore zoomLess={this.zoom} exitZoom={this.exitZoom} /> : null }
+        {this.state.page === 1 ? <Zoom zoomIn={this.zoomMore} exOut={this.exitZoom} /> : null}
+        {this.state.page === 2 ? <ZoomMore zoomLess={this.zoom} exitZoom={this.exitZoom} /> : null}
       </div>
     );
   }
