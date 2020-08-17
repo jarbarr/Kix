@@ -1,49 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Nav = styled.nav `
+const Nav = styled.nav`
   display: flex;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
 `;
-const Pad = styled.div `
-  flex: .5;
+const Pad = styled.div`
+  flex: 1;
 `;
-const Ul = styled.ul `
-  list-style-type: none;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-left: 50px;
-  padding: 10px;
-  flex: 4;
-  justify-content: center;
-`;
+// const Div = styled.div `
+//   list-style-type: none;
+//   display: infline-flex;
+//   flex: 8;
+//   height: 100%;
+//   justify-content: center;
+//   margin-top: 10px;
+//   margin-bottom: 10px;
+//   // border-bottom: 1px solid black;
+// `;
 
-const Li = styled.li `
-  display: inline;
+const Button = styled.button`
+  display: inline-flex;
+  justify-content: center;
   padding: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  // padding-right: 20px;
+  border-bottom: 4px solid white;
+  border-top: 4px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  width: auto;
+  height: 100%;
+  // padding-bottom: 10px;
+  // padding-top: 10px;
+  Background-color: transparent;
   cursor: pointer;
   &:hover {
     border-bottom: 4px solid black;
   }
 `;
 
+const Link = styled.a`
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
+`;
+
 const NavBar = (props) => {
   return (
     <Nav className="navbar">
       <Pad></Pad>
-      <Ul>
-        <Li><a>Gallery</a></Li>
-        <Li><a>Hilights</a></Li>
-        <Li><a>Description</a></Li>
-        <Li><a>Details</a></Li>
-        <Li><a>Story</a></Li>
-        <Li><a>Complete The Look</a></Li>
-        <Li><a>How To Style</a></Li>
-        <Li><a>Reviews</a></Li>
-      </Ul>
+      <Button><Link>Gallery</Link></Button>
+      <Button><Link>Highlights</Link></Button>
+      <Button><Link>Description</Link></Button>
+      <Button><Link>Details</Link></Button>
+      <Button><Link>Story</Link></Button>
+      <Button><Link>Complete The Look</Link></Button>
+      <Button><Link>How To Style</Link></Button>
+      <Button><Link>Reviews</Link></Button>
       <Pad></Pad>
     </Nav>
   );

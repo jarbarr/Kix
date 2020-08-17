@@ -6,6 +6,7 @@ const Div = styled.div `
   width: 100%;
   height: auto;
   display: flex;
+  z-index: 0;
 `;
 
 const Img = styled.img `
@@ -13,11 +14,13 @@ const Img = styled.img `
   width: 200%;
   height: auto;
   flex: 4;
+  z-index: 0;
+  overflow: hidden;
 `;
 
 const Button = styled.button `
   position: absolute;
-  top: 10%;
+  top: 5%;
   left: 95%;
   height: 50px;
   width: 50px;
@@ -25,7 +28,9 @@ const Button = styled.button `
   background-color: white;
   padding: 5px;
   font-size: 24px;
+  z-index: 1;
 `;
+
 
 class ZoomMore extends React.Component {
   constructor(props) {
@@ -35,18 +40,20 @@ class ZoomMore extends React.Component {
     this.exit = this.exit.bind(this);
   }
 
-  zoomOut() {
-    this.props.zoomLess();
+  zoomOut(e, img) {
+    e.preventDefault();
+    this.props.zoomLess(img);
   }
-  exit() {
+  exit(e) {
+    e.preventDefault();
     this.props.exitZoom();
   }
 
   render() {
     return (
-      <Div>
+      <Div id="box">
         <Button onClick={this.exit}>&#10005;</Button>
-        <Img src="imageslide.jpg"onClick={this.zoomOut}></Img>
+        <Img src={this.props.img[0]}onClick={(e) => { this.zoomOut(e, this.props.img); }}></Img>
       </Div>
     );
   }

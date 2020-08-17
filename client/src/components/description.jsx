@@ -16,6 +16,7 @@ const Span2 = styled.span`
 `;
 const P1 = styled.p`
   font-weight: bold;
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
   font-weight: italic;
   text-transform: uppercase;
   font-size: 18px;
@@ -42,6 +43,7 @@ const Header = styled.p`
 font-size: 36px;
 font-weight: bold;
 text-transform: uppercase;
+font-family: AdihausDIN,Helvetica,Arial,sans-serif;
 `;
 
 const Description = (props) => {
@@ -50,12 +52,12 @@ const Description = (props) => {
       {/* <Pad></Pad> */}
       <MainBody>
         <Span1>
-          <Header>SUPERSTAR SHOES</Header>
-          <P1>classic adidas superstart shoes with playful jewels</P1>
-          <P2>These shoes update the unmistakable, iconic look of the adidas Superstar shoe with style that's fit for a pair of royal feet. Animal-print embossing stands out on the iridescent leather upper. A trainer-shaped lace jewel decorates one shoe, and a crown-shaped lace jewel decorates the other. Because your shoes should always be accessorized, don't you think?</P2>
+          <Header>{props.data.title}</Header>
+          <P1>{props.data.header}</P1>
+          <P2>{props.data.bio}</P2>
         </Span1>
         <Span2>
-          <Img src="imageSlide.jpg"></Img>
+          <Img src={props.data.img}></Img>
         </Span2>
       </MainBody>
       {/* <Pad></Pad> */}

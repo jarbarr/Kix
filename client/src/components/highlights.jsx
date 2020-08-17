@@ -5,14 +5,14 @@ const Div = styled.div`
   display: flex;
 
 `;
-const Body = styled.div `
+const Body = styled.div`
   margin-top: 100px;
 `;
 const Pad = styled.div`
   margin-left: 100px;
   margin-right: 100px;
 `;
-const MainBody = styled.div `
+const MainBody = styled.div`
   margin-left: 100px;
   margin-right: 50px;
 `;
@@ -46,6 +46,7 @@ const Header = styled.p`
   justify-content: flex-end;
   flex-direction: column;
   margin-left: 20px;
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
 `;
 
 class HighLights extends React.Component {
@@ -54,6 +55,9 @@ class HighLights extends React.Component {
     this.state = {};
   }
   render() {
+    // if (this.props.data === undefined) {
+    //   return null;
+    // } else {
     return (
       <Body>
         <Pad></Pad>
@@ -61,19 +65,19 @@ class HighLights extends React.Component {
           <Header>HIGHLIGHTS</Header>
           <Div>
             <Span>
-              <Img src="detail.jpg"></Img>
-              <P1>A TOUCH OF SPARKLE</P1>
-              <P2>Silver jewels stand out on the laces.</P2>
+              <Img src={this.props.data.img1}></Img>
+              <P1>{this.props.data.header1}</P1>
+              <P2>{this.props.data.p1}</P2>
             </Span>
             <Span>
-              <Img src="detail2.jpg"></Img>
-              <P1>SMOOTH RIDE</P1>
-              <P2>The rubber outsole offers all-day comfort.</P2>
+              <Img src={this.props.data.img2}></Img>
+              <P1>{this.props.data.header2}</P1>
+              <P2>{this.props.data.p2}</P2>
             </Span>
             <Span>
-              <Img src="detail3.jpg"></Img>
-              <P1>CELEBRATE AN ICON</P1>
-              <P2>These adidas Superstar shoes come with branded laces and lace jewel details.</P2>
+              <Img src={this.props.data.img3}></Img>
+              <P1>{this.props.data.header3}</P1>
+              <P2>{this.props.data.p3}</P2>
             </Span>
           </Div>
         </MainBody>
@@ -82,5 +86,6 @@ class HighLights extends React.Component {
     );
   }
 }
+// }
 
 export default HighLights;

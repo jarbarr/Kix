@@ -9,8 +9,10 @@ import Details from './details.jsx';
 import Zoom from './zoom.jsx';
 import ZoomMore from './zoomMore.jsx';
 import Coupon from './coupon.jsx';
+import Popup from './popup.jsx';
 const axios = require('axios');
 const endpoint = '/kix';
+// const endpoint2 = '/colorChoice';
 
 const Header = styled.div`
 
@@ -18,8 +20,8 @@ const Header = styled.div`
 const Banner = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
 `;
 const LogoDiv = styled.div`
   padding-left: 20px;
@@ -29,7 +31,7 @@ const Body = styled.div`
   display: flex;
 `;
 const AppDiv = styled.div`
-  border-right: 1px solid black;
+  border-right: 1px solid grey;
   flex: 3;
 `;
 const SideBar = styled.div`
@@ -40,20 +42,28 @@ const Logo = styled.img`
   width: auto;
 
 `;
-const Popup = styled.div `
+const PopUp = styled.div`
+  background-color: grey;
+  opacity: .5;
+  width: 1000%;
+  height: 1000%;
+  overflow: hidden;
+  position: absolute;
+  top: 0%;
+  left: 0%;
 
 `;
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       page: 0,
-      imgSlides: [],
-      options: [],
-      highLights: { img: [], cap: [] },
-      details: '',
-      story: [],
+      imgSlides: {},
+      options: {},
+      highLights: {},
+      description: {},
+      details: {},
+      image: []
     };
     this.fetchDefaultData = this.fetchDefaultData.bind(this);
     this.clickColorOption = this.clickColorOption.bind(this);
@@ -62,126 +72,148 @@ class App extends React.Component {
     this.zoom = this.zoom.bind(this);
     this.exitZoom = this.exitZoom.bind(this);
     this.zoomMore = this.zoomMore.bind(this);
-    this.coupon = this.coupon.bind(this);
+    this.scrollRight = this.scrollRight.bind(this);
+    this.scrollLeft = this.scrollLeft.bind(this);
+
+    // this.coupon = this.coupon.bind(this);
+
   }
   fetchDefaultData() {
     axios.get(endpoint)
-      .then(console.log)
+      .then((response) => {
+        this.setState({
+          page: 0,
+          imgSlides: response.data.gallery,
+          options: response.data.options,
+          highLights: response.data.highLights,
+          description: response.data.description,
+          details: response.data.details,
+          image: [response.data.gallery[1], 1]
+        });
+      })
       .catch(console.log);
   }
-  clickColorOption() {
-    axios.post(endpoint)
-      .then(console.log)
+  clickColorOption(shoe) {
+    axios.post(endpoint, {
+      main: shoe
+    })
+      .then((response) => {
+        this.setState({
+          page: 0,
+          imgSlides: response.data.gallery,
+          options: response.data.options,
+          highLights: response.data.highlights,
+          description: response.data.description,
+          details: response.data.details,
+          image: [response.data.gallery[1], 1]
+        });
+      })
       .catch(console.log);
   }
-  clickThumbnail() {
-
+  clickThumbnail(thumbnail) {
+    var img = this.state.imgSlides[thumbnail];
+    var state = this.state;
+    state.image = [img, thumbnail];
+    this.setState(state);
   }
   changeStyle() {
 
   }
   scrollRight() {
-
+    var img = this.state.image[1];
+    if (img === 10) {
+      img -= 9;
+    } else {
+      img++;
+    }
+    var slide = this.state.imgSlides[img];
+    var state = this.state;
+    state.image = [slide, img];
+    this.setState(state);
   }
   scrollLeft() {
+    var img = this.state.image[1];
+    if (img === 1) {
+      img += 9;
+    } else {
+      img--;
+    }
+    var slide = this.state.imgSlides[img];
+    var state = this.state;
+    state.image = [slide, img];
+    this.setState(state);
+  }
+  // coupon() {
+  //   this.setState({
+  //     page: 3,
+  //     imgSlides: {},
+  //     options: {},
+  //     highLights: {},
+  //     details: {},
 
-  }
-  coupon() {
-    this.setState({
-      page: 3,
-      imgSlides: [],
-      options: [],
-      highLights: { img: [], cap: [] },
-      details: '',
-      story: [],
-    });
-  }
+  //   });
+  // }
 
   componentDidMount() {
-    // this.fetchDefaultData();
+    this.fetchDefaultData();
   }
   exitZoom() {
-    this.setState({
-      page: 0,
-      imgSlides: [],
-      options: [],
-      highLights: { img: [], cap: [] },
-      description: [],
-      details: '',
-      story: []
-    });
+    var state = this.state;
+    state.page = 0;
+    this.setState(state);
   }
 
-  zoom() {
-    this.setState({
-      page: 1,
-      imgSlides: [],
-      options: [],
-      highLights: { img: [], cap: [] },
-      details: '',
-      story: []
-    });
+  zoom(img) {
+    var state = this.state;
+    state.page = 1;
+    state.image = img;
+    this.setState(state);
   }
   zoomMore() {
-    this.setState({
-      page: 2,
-      imgSlides: [],
-      options: [],
-      highLights: { img: [], cap: [] },
-      details: '',
-      story: []
-    });
+    console.log(this.state);
+    var state = this.state;
+    state.page++;
+    this.setState(state);
   }
+
 
   render() {
     return (
       <div>
-        {this.state.page === 0 ? <Header>
-          <LogoDiv>
-            {this.state.page === 0 ? <Logo className="logo" src="adidaslogo.png" /> : null}
-          </LogoDiv>
-          {this.state.page === 0 ? <Banner><Coupon coupon={this.coupon} /></Banner> : null}
-        </Header> : null}
-        {this.state.page === 3 ? <Header>
-          <LogoDiv>
-            {this.state.page === 3 ? <Logo className="logo" src="adidaslogo.png" /> : null}
-          </LogoDiv>
-          {this.state.page === 3 ? <Banner><Coupon coupon={this.coupon} /></Banner> : null}
-        </Header> : null}
+        {this.state.page === 0 ?
+          <Header>
+            <LogoDiv>
+              {this.state.page === 0 ? <Logo className="logo" src="https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/adidas-seeklogo.com+2-0.png" /> : null}
+            </LogoDiv>
+            {this.state.page === 0 ? <Banner><Coupon coupon={this.coupon} /></Banner> : null}
+          </Header>
+          : null}
         <Body>
-          <PopUp>
-            <Popup />
-            <AppDiv className="app">
-              <div>
-                {this.state.page === 0 ? <ImageSlide zoom={this.zoom} right={this.scrollRight} left={this.scrollLeft} /> : null}
-                {this.state.page === 3 ? <ImageSlide zoom={this.zoom} right={this.scrollRight} left={this.scrollLeft} /> : null}
-              </div>
-              <div>
-                {this.state.page === 0 ? <Options /> : null}
-                {this.state.page === 3 ? <Options /> : null}
-              </div>
-              <div>
-                {this.state.page === 0 ? <NavBar /> : null}
-                {this.state.page === 3 ? <NavBar /> : null}
-              </div>
-              <div>
-                {this.state.page === 0 ? <HighLights /> : null}
-                {this.state.page === 3 ? <HighLights /> : null}
-              </div>
-              <div>
-                {this.state.page === 0 ? <Description /> : null}
-                {this.state.page === 3 ? <Description /> : null}
-              </div>
-              <div>
-                {this.state.page === 0 ? <Details /> : null}
-                {this.state.page === 3 ? <Details /> : null}
-              </div>
-            </AppDiv>
-            <SideBar></SideBar>
-          </PopUp>
+          {/* {this.state.page === 3 ? <Popup /> : null} */}
+          <AppDiv className="app">
+            <div>
+              {this.state.page === 0 ? <ImageSlide clickThumbnail={this.clickThumbnail}image={this.state.image} data={this.state.imgSlides} z={this.zoom} right={this.scrollRight} left={this.scrollLeft} /> : null}
+            </div>
+            <div>
+              {this.state.page === 0 ? <Options color={this.clickColorOption} data={this.state.options}/> : null}
+            </div>
+            <div>
+              {this.state.page === 0 ? <NavBar /> : null}
+            </div>
+            {this.state.highLights !== undefined ? <div>
+              {this.state.page === 0 ? <HighLights data={this.state.highLights} /> : null}
+            </div> : null}
+            <div>
+              {this.state.page === 0 ? <Description data={this.state.description}/> : null}
+            </div>
+            <div>
+              {this.state.page === 0 ? <Details data={this.state.details}/> : null}
+            </div>
+          </AppDiv>
+          <SideBar></SideBar>
         </Body>
-        {this.state.page === 1 ? <Zoom zoomIn={this.zoomMore} exOut={this.exitZoom} /> : null}
-        {this.state.page === 2 ? <ZoomMore zoomLess={this.zoom} exitZoom={this.exitZoom} /> : null}
+        {this.state.page === 1 ? <Zoom img={this.state.image}zoomIn={this.zoomMore} exOut={this.exitZoom} /> : null}
+        {this.state.page === 2 ? <ZoomMore img={this.state.image}zoomLess={this.zoom} exitZoom={this.exitZoom} /> : null}
       </div>
     );
   }

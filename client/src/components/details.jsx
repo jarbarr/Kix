@@ -34,6 +34,7 @@ const Header = styled.p`
   padding-bottom: 0px;
   margin-bottom: 0px;
   text-transform: uppercase;
+  font-family: AdihausDIN,Helvetica,Arial,sans-serif;
 `;
 
 const Details = (props) => {
@@ -44,16 +45,16 @@ const Details = (props) => {
         <Header>SPECIFCATIONS</Header>
         <Div>
           <Ul>
-            <Li><p>Regular fit</p></Li>
-            <Li><p>Lace Closure</p></Li>
-            <Li><p>Leather upper</p></Li>
-            <Li><p>Leather trainers with lace jewels</p></Li>
+            <Li><p>{props.data[1]}</p></Li>
+            <Li><p>{props.data[2]}</p></Li>
+            <Li><p>{props.data[3]}</p></Li>
+            <Li><p>{props.data[4]}</p></Li>
           </Ul>
           <Ul>
-            <Li><p>Rubber outsole</p></Li>
-            <Li><p>Imported</p></Li>
-            <Li><p>Product Color White / Core Black / Gold Metallic</p></Li>
-            <Li><p>Product Code FV3396</p></Li>
+            <Li><p>{props.data[5]}</p></Li>
+            <Li><p>{props.data[6]}</p></Li>
+            <Li><p>{props.data[7]}</p></Li>
+            <Li><p>{props.data[8]}</p></Li>
           </Ul>
         </Div>
       </MainBody>

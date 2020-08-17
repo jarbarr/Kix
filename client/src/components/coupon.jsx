@@ -7,7 +7,7 @@ const P = styled.p `
   padding-top: 0px;
   margin-bottom: 0px;
   padding-bottom: 0px;
-  margin-left: 0px;
+  margin-left: 200px;
 
 `;
 

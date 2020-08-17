@@ -38,10 +38,12 @@ class Zoom extends React.Component {
     this.exitZoom = this.exitZoom.bind(this);
     this.zoomMore = this.zoomMore.bind(this);
   }
-  exitZoom() {
+  exitZoom(e) {
+    e.preventDefault();
     this.props.exOut();
   }
-  zoomMore() {
+  zoomMore(e) {
+    e.preventDefault();
     this.props.zoomIn();
   }
   render() {
@@ -49,7 +51,7 @@ class Zoom extends React.Component {
       <Div>
         <Pad></Pad>
         <Button onClick={this.exitZoom}>&#x2715;</Button>
-        <Img src="imageSlide.jpg" onClick={this.zoomMore}></Img>
+        <Img src={this.props.img[0]} onClick={this.zoomMore}></Img>
         <Pad></Pad>
       </Div>
     );

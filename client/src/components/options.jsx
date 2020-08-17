@@ -94,6 +94,8 @@ class Options extends React.Component {
       img4: 0,
       img5: 0
     });
+    this.props.color(this.props.data[1]);
+
   }
   option2(e) {
     e.preventDefault();
@@ -104,6 +106,7 @@ class Options extends React.Component {
       img4: 0,
       img5: 0
     });
+    this.props.color(this.props.data[2]);
   }
   option3(e) {
     e.preventDefault();
@@ -114,6 +117,7 @@ class Options extends React.Component {
       img4: 0,
       img5: 0
     });
+    this.props.color(this.props.data[3]);
   }
   option4(e) {
     e.preventDefault();
@@ -124,6 +128,7 @@ class Options extends React.Component {
       img4: 1,
       img5: 0
     });
+    this.props.color(this.props.data[4]);
   }
   option5(e) {
     e.preventDefault();
@@ -134,6 +139,7 @@ class Options extends React.Component {
       img4: 0,
       img5: 1
     });
+    this.props.color(this.props.data[5]);
   }
   render() {
     return (
@@ -141,14 +147,14 @@ class Options extends React.Component {
         <Pad></Pad>
         <MainBody>
           <Span>
-            <P>n COLORS</P>
+            <P>{this.props.data[6]} COLORS</P>
             <P>AVAILABLE</P>
           </Span>
-          {this.state.img1 === 0 ? <Img onClick={this.option1}src="o1.jpg"></Img> : <Select src="o1.jpg"></Select>}
-          {this.state.img2 === 0 ? <Img onClick={this.option2} src="o2.jpg"></Img> : <Select src="o2.jpg"></Select>}
-          {this.state.img3 === 0 ? <Img onClick={this.option3}src="o3.jpg"></Img> : <Select src="o3.jpg"></Select>}
-          {this.state.img4 === 0 ? <Img onClick={this.option4}src="o4.jpg"></Img> : <Select src="o4.jpg"></Select>}
-          {this.state.img5 === 0 ? <Img onClick={this.option5}src="imageSlide.jpg"></Img> : <Select src="imageSlide.jpg"></Select>}
+          {this.state.img1 === 0 ? <Img onClick={this.option1}src={this.props.data[1]}></Img> : <Select src={this.props.data[1]}></Select>}
+          {this.state.img2 === 0 ? <Img onClick={this.option2} src={this.props.data[2]}></Img> : <Select src={this.props.data[2]}></Select>}
+          {this.state.img3 === 0 ? <Img onClick={this.option3}src={this.props.data[3]}></Img> : <Select src={this.props.data[3]}></Select>}
+          {this.state.img4 === 0 ? <Img onClick={this.option4}src={this.props.data[4]}></Img> : <Select src={this.props.data[4]}></Select>}
+          {this.state.img5 === 0 ? <Img onClick={this.option5}src={this.props.data[5]}></Img> : <Select src={this.props.data[5]}></Select>}
         </MainBody>
         <Pad></Pad>
       </Option>
