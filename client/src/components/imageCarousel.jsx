@@ -15,7 +15,6 @@ const endpoint = '/kix';
 // const endpoint2 = '/colorChoice';
 
 const Header = styled.div`
-
 `;
 const Banner = styled.div`
   padding-top: 20px;
@@ -32,7 +31,7 @@ const Body = styled.div`
 `;
 const AppDiv = styled.div`
   border-right: 1px solid grey;
-  flex: 3;
+  // flex: 3;
 `;
 const SideBar = styled.div`
   flex: 1;
@@ -53,7 +52,7 @@ const PopUp = styled.div`
   left: 0%;
 
 `;
-class App extends React.Component {
+class ImageCarousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -81,6 +80,12 @@ class App extends React.Component {
   fetchDefaultData() {
     axios.get(endpoint)
       .then((response) => {
+        var slides = [];
+        var index = 0;
+        for (var slide in response.data.gallery) {
+          slides[index] = response.data.gallery[slide];
+          index++;
+        }
         this.setState({
           page: 0,
           imgSlides: response.data.gallery,
@@ -88,7 +93,7 @@ class App extends React.Component {
           highLights: response.data.highLights,
           description: response.data.description,
           details: response.data.details,
-          image: [response.data.gallery[1], 1]
+          image: [response.data.gallery[1], 1, slides]
         });
       })
       .catch(console.log);
@@ -98,6 +103,12 @@ class App extends React.Component {
       main: shoe
     })
       .then((response) => {
+        var slides = [];
+        var index = 0;
+        for (var slide in response.data.gallery) {
+          slides[index] = response.data.gallery[slide];
+          index++;
+        }
         this.setState({
           page: 0,
           imgSlides: response.data.gallery,
@@ -105,7 +116,7 @@ class App extends React.Component {
           highLights: response.data.highlights,
           description: response.data.description,
           details: response.data.details,
-          image: [response.data.gallery[1], 1]
+          image: [response.data.gallery[1], 1, slides]
         });
       })
       .catch(console.log);
@@ -143,16 +154,12 @@ class App extends React.Component {
     state.image = [slide, img];
     this.setState(state);
   }
-  // coupon() {
-  //   this.setState({
-  //     page: 3,
-  //     imgSlides: {},
-  //     options: {},
-  //     highLights: {},
-  //     details: {},
-
-  //   });
-  // }
+  coupon(e) {
+    e.preventDefault();
+    var state = this.state;
+    state.page = 4;
+    this.setState({});
+  }
 
   componentDidMount() {
     this.fetchDefaultData();
@@ -175,6 +182,10 @@ class App extends React.Component {
     state.page++;
     this.setState(state);
   }
+  shoeStyles() {
+    var state = this.state;
+    state.page = 5;
+  }
 
 
   render() {
@@ -185,11 +196,12 @@ class App extends React.Component {
             <LogoDiv>
               {this.state.page === 0 ? <Logo className="logo" src="https://hr-front-end-capstone-adidas.s3-us-west-1.amazonaws.com/Carousel/adidas-seeklogo.com+2-0.png" /> : null}
             </LogoDiv>
-            {this.state.page === 0 ? <Banner><Coupon coupon={this.coupon} /></Banner> : null}
+            {this.state.page === 0 ? <Banner><Coupon onClick={this.coupon}exit={this.exitZoom} /></Banner> : null}
           </Header>
           : null}
         <Body>
-          {/* {this.state.page === 3 ? <Popup /> : null} */}
+          {this.state.page === 4 ? <Popup /> : null}
+          {this.state.page === 5 ? <ShoeStyles /> : null}
           <AppDiv className="app">
             <div>
               {this.state.page === 0 ? <ImageSlide clickThumbnail={this.clickThumbnail}image={this.state.image} data={this.state.imgSlides} z={this.zoom} right={this.scrollRight} left={this.scrollLeft} /> : null}
@@ -219,5 +231,5 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default ImageCarousel;
 

@@ -3,28 +3,25 @@ const mongoose = require('mongoose');
 
 
 const Superstar = mongoose.model('Superstar', schema, 'superstar');
-// const Supernova = mongoose.model('Supernova', schema, 'supernova');
+const Supernova = mongoose.model('Supernova', schema, 'supernova');
 
 
 module.exports = {
-  // Supernova: Supernova,
+  Supernova: Supernova,
   Superstar: Superstar,
 
   seed: (data, collection) => {
-    // if (collection === 'superstar') {
-    //   var shoeStyle = new Superstar(data);
-    // } else if (collection === 'supernova') {
-    //   shoeStyle = new Supernova(data);
-    // }
-    var shoeStyle = new Superstar(data);
+    if (collection === 'superstar') {
+      var shoeStyle = new Superstar(data);
+    } else if (collection === 'supernova') {
+      shoeStyle = new Supernova(data);
+    }
 
     shoeStyle.save((err) => {
       if (err) {
-        // callback(err, null);
         console.error(err);
       } else {
         console.log('success!');
-        // callback(null, data);
       }
     });
 
@@ -41,7 +38,14 @@ module.exports = {
   },
 
   fetch: (req, callback) => {
-    Superstar.findOne({main: req.main }, (err, data) => {
+    var shoestyle;
+    console.log(req);
+    if (req.main.includes('SuperStar')) {
+      shoestyle = Superstar;
+    } else if (req.main.includes('Supernova')) {
+      shoestyle = Supernova;
+    }
+    shoestyle.findOne({main: req.main }, (err, data) => {
       if (err) {
         callback(err, null);
       } else {

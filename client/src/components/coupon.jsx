@@ -10,22 +10,30 @@ const P = styled.p `
   margin-left: 200px;
 
 `;
+const Inner = styled.div `
+  position: inline flex;
+`;
+const Outter = styled.div `
+  display: flex;
+`;
+const Img = styled.img `
+  width: 5px;
+`;
 
-class Coupon extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.pop = this.pop.bind(this);
-  }
-  pop(e) {
-    e.preventDefault();
-    this.props.coupon();
-  }
-  render() {
-    return (
-      <P onClick={this.pop}>up to 25% off | code: savings</P>
-    );
-  }
-}
+const Coupon = (props) => {
+  return (
+    <Outter>
+      <Inner>
+        <P onClick={props.exit}>up to 25% off | code: savings</P>
+      </Inner>
+      <Inner>
+        <P>covid-19 is a team effort</P>
+      </Inner>
+      <Inner>
+        <P>FREE SHIPPING OVER $49 AND FREE 30 DAY RETURNS</P>
+      </Inner>
+    </Outter>
+  );
+};
 
 export default Coupon;
