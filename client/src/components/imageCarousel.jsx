@@ -10,6 +10,7 @@ import Zoom from './zoom.jsx';
 import ZoomMore from './zoomMore.jsx';
 import Coupon from './coupon.jsx';
 import Popup from './popup.jsx';
+import $ from 'jquery';
 const axios = require('axios');
 const endpoint = '/kix';
 // const endpoint2 = '/colorChoice';
@@ -31,7 +32,7 @@ const Body = styled.div`
 `;
 const AppDiv = styled.div`
   border-right: 1px solid grey;
-  // flex: 3;
+  flex: 3;
 `;
 const SideBar = styled.div`
   flex: 1;
@@ -80,12 +81,6 @@ class ImageCarousel extends React.Component {
   fetchDefaultData() {
     axios.get(endpoint)
       .then((response) => {
-        var slides = [];
-        var index = 0;
-        for (var slide in response.data.gallery) {
-          slides[index] = response.data.gallery[slide];
-          index++;
-        }
         this.setState({
           page: 0,
           imgSlides: response.data.gallery,
@@ -93,7 +88,7 @@ class ImageCarousel extends React.Component {
           highLights: response.data.highLights,
           description: response.data.description,
           details: response.data.details,
-          image: [response.data.gallery[1], 1, slides]
+          image: [response.data.gallery[1], 1]
         });
       })
       .catch(console.log);
@@ -103,12 +98,6 @@ class ImageCarousel extends React.Component {
       main: shoe
     })
       .then((response) => {
-        var slides = [];
-        var index = 0;
-        for (var slide in response.data.gallery) {
-          slides[index] = response.data.gallery[slide];
-          index++;
-        }
         this.setState({
           page: 0,
           imgSlides: response.data.gallery,
@@ -116,7 +105,7 @@ class ImageCarousel extends React.Component {
           highLights: response.data.highlights,
           description: response.data.description,
           details: response.data.details,
-          image: [response.data.gallery[1], 1, slides]
+          image: [response.data.gallery[1], 1]
         });
       })
       .catch(console.log);
@@ -137,10 +126,12 @@ class ImageCarousel extends React.Component {
     } else {
       img++;
     }
+    // $('#currentImage').animate({width: 0});
     var slide = this.state.imgSlides[img];
     var state = this.state;
     state.image = [slide, img];
     this.setState(state);
+    // $('#currentImage').animate({width: '400px' });
   }
   scrollLeft() {
     var img = this.state.image[1];

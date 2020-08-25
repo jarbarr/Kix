@@ -20,7 +20,7 @@ const Icons = styled.div`
   // float: left;
   grid-column-start: 1;
   grid-row-start: 1;
-  margin-left: 200px;
+  margin-left: 100px;
   margin-top: 400px;
 `;
 const MainBody = styled.div`
@@ -39,6 +39,8 @@ const MainBody = styled.div`
 const Slider = styled.div`
   display: flex;
   overflow-x: auto;
+  grid-column-start: 1;
+  grid-row-start: 1;
   scroll-snap-type: x mandatory;
   scroll-bahavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -113,13 +115,16 @@ const ThumbNail = styled.img`
   width: auto;
   margin: 5px;
   z-index: 1;
-  justify-content: column;
+  justify-content: center;
   overflow: hidden;
   // border-bottom: 4px solid white;
   border: 1px solid black;
   &:hover {
     border-bottom: 4px solid black;
-  }
+  };
+  &:focus {
+    border-bottom: 4px solid black;
+  };
 `;
 const Collapsed = styled.img`
   display: inline-flex;
@@ -190,8 +195,8 @@ class ImageSlide extends React.Component {
         </Pad>
         <MainBody>
           {/* <Slider> */}
-          <Img src={this.props.image[0]} onClick={(e) => { this.zoom(e, this.props.image); }} ></Img>
-          <Img src={this.props.data[2]} onClick={(e) => { this.zoom(e, this.props.data[2]); }} ></Img>
+          <Img id="currentImage"src={this.props.image[0]} onClick={(e) => { this.zoom(e, this.props.image); }} ></Img>
+          {/* <Img src={this.props.data[2]} onClick={(e) => { this.zoom(e, this.props.data[2]); }} ></Img>
           <Img src={this.props.data[3]} onClick={(e) => { this.zoom(e, this.props.data[3]); }} ></Img>
           <Img src={this.props.data[4]} onClick={(e) => { this.zoom(e, this.props.data[4]); }} ></Img>
           <Img src={this.props.data[5]} onClick={(e) => { this.zoom(e, this.props.data[5]); }} ></Img>
@@ -200,7 +205,7 @@ class ImageSlide extends React.Component {
           <Img src={this.props.data[8]} onClick={(e) => { this.zoom(e, this.props.data[8]); }} ></Img>
           <Img src={this.props.data[9]} onClick={(e) => { this.zoom(e, this.props.data[9]); }} ></Img>
           <Img src={this.props.data[10]} onClick={(e) => { this.zoom(e, this.props.data[10]); }} ></Img>
-          <Img src={this.props.data[11]} onClick={(e) => { this.zoom(e, this.props.data[11]); }} ></Img>
+          <Img src={this.props.data[11]} onClick={(e) => { this.zoom(e, this.props.data[11]); }} ></Img> */}
           {/* </Slider> */}
           <Icons>
             {this.state.mouseOver === 0 ? <ThumbNail onClick={(e) => { this.thumbnailClick(e, 1); }} src={this.props.data[1]}></ThumbNail> : <Collapsed src={this.props.data[1]}></Collapsed>}
