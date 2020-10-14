@@ -1,0 +1,47 @@
+{
+  "name": "image-carousel-service",
+  "version": "1.0.0",
+  "description": "HR Front End Capstone",
+  "author": "Jared Barron",
+  "license": "",
+  "scripts": {
+    "react-dev": "webpack -d --watch",
+    "start": "nodemon server/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "seed": "node ./db/seed.js",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "babel-jest": "^26.2.2",
+    "brotli-webpack-plugin": "^1.1.0",
+    "compression-webpack-plugin": "^5.0.1",
+    "express": "^4.17.1",
+    "express-static-gzip": "^2.0.7",
+    "faker": "^4.1.0",
+    "jest": "^26.2.2",
+    "jest-enzyme": "^7.1.2",
+    "jquery": "^3.5.1",
+    "mongoose": "^5.9.27",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.44.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest-styled-components": "^7.0.2",
+    "style-loader": "^1.2.1",
+    "styled-components": "^5.1.1",
+    "webpack-cli": "^3.3.12"
+  }
+}

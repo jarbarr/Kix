@@ -1,0 +1,145 @@
+.outterDiv {
+  width: 100%;
+  height: auto;
+  display: flex;
+  max-height: 600px;
+  margin-bottom: 20px;
+  background-color: #eceff0;
+  position: static;
+}
+.pad {
+  flex: 1;
+}
+.icons {
+  justify-content: center;
+  margin-left: -100%;
+  z-index: 1;
+  float: left;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  margin-left: 100px;
+  margin-top: 400px;
+}
+.mainBody {
+  flex: 4;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.menu {
+  margin-top: 20px;
+  margin-left: 10px;
+  display: flex;
+}
+
+.direct {
+  border: 0px;
+  /* position: static; */
+  display: inline-flex;
+  cursor: pointer;
+  background-color: transparent;
+  text-decoration: underline;
+  text-transform: uppercase;
+
+}
+.direct:hover {
+  background-color: black;
+  color: white;
+}
+
+.left {
+  cursor: pointer;
+  /* position: relative; */
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  background-color: white;
+  padding-bottom: 5px;
+  font-size: 30px;
+  margin-top: 200px;
+  margin-left: 20px;
+}
+
+.right {
+  cursor: pointer;
+  /* position: relative; */
+  height: 50px;
+  width: 50px;
+  margin-top: 250px;
+  margin-left: 100px;
+  border: 1px solid black;
+  background-color: white;
+  padding-bottom: 5px;
+  font-size: 30px;
+}
+
+.track {
+  display: flex;
+  overflow: hidden;
+  flex-flow: row;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  -webkit-overflow-scrolling: touch;
+}
+
+.slides {
+  width: 100%;
+  /* max-width: 600px; */
+  height: auto;
+  cursor: nesw-resize;
+  z-index: 0;
+  grid-column-start: 1;
+  grid-row-start: 1;
+  /* grid-row-end: 1; */
+  scroll-snap-type: x mandatory;
+  flex-flow: row;
+  scroll-behavior: smooth;
+  /* transform: translate(0px, -20%); */
+  overflow: hidden;
+  /* justify-content: column; */
+}
+.collapsed {
+  display: inline-flex;
+  /* position: relative; */
+  margin-left: 5px;
+  margin-right: 5px;
+  /* z-index: 1; */
+  height: 0px;
+  width: 25px;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 2px solid black;
+}
+.thumbnail {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  /* top: 20%; */
+  /* left: 100%; */
+  /* float: left; */
+  height:25px;
+  width: auto;
+  margin: 5px;
+  z-index: 1;
+  justify-content: center;
+  overflow: hidden;
+  /* border-bottom: 4px solid white; */
+  border: 1px solid black;
+}
+
+.thumbnail:hover {
+  border-bottom: 4px solid black;
+}
+
+.thumbnail:focus {
+  border-bottom: 4px solid black;
+};
+
+
