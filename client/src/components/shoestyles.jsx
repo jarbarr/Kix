@@ -1,8 +1,6 @@
 import React from 'react';
 
-const Div = styled.div `
 
-`;
 
 class ShoeStyles extends React.Component {
   constructor(props) {
@@ -17,3 +15,9 @@ class ShoeStyles extends React.Component {
     );
   }
 }
+
+
+
+const Div = styled.div `
+
+`;

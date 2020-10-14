@@ -13,46 +13,7 @@ import Popup from './popup.jsx';
 import $ from 'jquery';
 const axios = require('axios');
 const endpoint = '/kix';
-// const endpoint2 = '/colorChoice';
 
-const Header = styled.div`
-`;
-const Banner = styled.div`
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-top: 1px solid grey;
-  border-bottom: 1px solid grey;
-`;
-const LogoDiv = styled.div`
-  padding-left: 20px;
-  padding-bottom: 20px;
-`;
-const Body = styled.div`
-  display: flex;
-`;
-const AppDiv = styled.div`
-  border-right: 1px solid grey;
-  flex: 3;
-`;
-const SideBar = styled.div`
-  flex: 1;
-`;
-const Logo = styled.img`
-  height: 50px;
-  width: auto;
-
-`;
-const PopUp = styled.div`
-  background-color: grey;
-  opacity: .5;
-  width: 1000%;
-  height: 1000%;
-  overflow: hidden;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-
-`;
 class ImageCarousel extends React.Component {
   constructor(props) {
     super(props);
@@ -75,7 +36,6 @@ class ImageCarousel extends React.Component {
     this.scrollRight = this.scrollRight.bind(this);
     this.scrollLeft = this.scrollLeft.bind(this);
 
-    // this.coupon = this.coupon.bind(this);
 
   }
   fetchDefaultData() {
@@ -126,12 +86,10 @@ class ImageCarousel extends React.Component {
     } else {
       img++;
     }
-    // $('#currentImage').animate({width: 0});
     var slide = this.state.imgSlides[img];
     var state = this.state;
     state.image = [slide, img];
     this.setState(state);
-    // $('#currentImage').animate({width: '400px' });
   }
   scrollLeft() {
     var img = this.state.image[1];
@@ -224,3 +182,44 @@ class ImageCarousel extends React.Component {
 
 export default ImageCarousel;
 
+
+
+
+const Header = styled.div`
+`;
+const Banner = styled.div`
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+`;
+const LogoDiv = styled.div`
+  padding-left: 20px;
+  padding-bottom: 20px;
+`;
+const Body = styled.div`
+  display: flex;
+`;
+const AppDiv = styled.div`
+  border-right: 1px solid grey;
+  flex: 3;
+`;
+const SideBar = styled.div`
+  flex: 1;
+`;
+const Logo = styled.img`
+  height: 50px;
+  width: auto;
+
+`;
+const PopUp = styled.div`
+  background-color: grey;
+  opacity: .5;
+  width: 1000%;
+  height: 1000%;
+  overflow: hidden;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+
+`;

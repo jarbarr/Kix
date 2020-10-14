@@ -1,24 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const P = styled.p `
-  text-transform: uppercase;
-  margin-top: 0px;
-  padding-top: 0px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-  margin-left: 200px;
-
-`;
-const Inner = styled.div `
-  position: inline flex;
-`;
-const Outter = styled.div `
-  display: flex;
-`;
-const Img = styled.img `
-  width: 5px;
-`;
 
 const Coupon = (props) => {
   return (
@@ -37,3 +19,23 @@ const Coupon = (props) => {
 };
 
 export default Coupon;
+
+
+const P = styled.p `
+  text-transform: uppercase;
+  margin-top: 0px;
+  padding-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  margin-left: 200px;
+
+`;
+const Inner = styled.div `
+  position: inline flex;
+`;
+const Outter = styled.div `
+  display: flex;
+`;
+const Img = styled.img `
+  width: 5px;
+`;

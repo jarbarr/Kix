@@ -1,6 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
+const NavBar = (props) => {
+  return (
+    <Nav className="navbar">
+      <Pad></Pad>
+      <Button><Link>Gallery</Link></Button>
+      <Button><Link>Highlights</Link></Button>
+      <Button><Link>Description</Link></Button>
+      <Button><Link>Details</Link></Button>
+      <Button><Link>Story</Link></Button>
+      <Button><Link>Complete The Look</Link></Button>
+      <Button><Link>How To Style</Link></Button>
+      <Button><Link>Reviews</Link></Button>
+      <Pad></Pad>
+    </Nav>
+  );
+};
+
+export default NavBar;
+
+
 const Nav = styled.nav`
   display: flex;
   border-top: 1px solid grey;
@@ -43,23 +64,3 @@ const Button = styled.button`
 const Link = styled.a`
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
 `;
-
-const NavBar = (props) => {
-  return (
-    <Nav className="navbar">
-      <Pad></Pad>
-      <Button><Link>Gallery</Link></Button>
-      <Button><Link>Highlights</Link></Button>
-      <Button><Link>Description</Link></Button>
-      <Button><Link>Details</Link></Button>
-      <Button><Link>Story</Link></Button>
-      <Button><Link>Complete The Look</Link></Button>
-      <Button><Link>How To Style</Link></Button>
-      <Button><Link>Reviews</Link></Button>
-      <Pad></Pad>
-    </Nav>
-  );
-};
-
-export default NavBar;
-

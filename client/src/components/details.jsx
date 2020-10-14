@@ -1,6 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
+
+const Details = (props) => {
+  return (
+    <Body>
+      <Pad></Pad>
+      <MainBody>
+        <Header>SPECIFCATIONS</Header>
+        <Div>
+          <Ul>
+            <Li><p>{props.data[1]}</p></Li>
+            <Li><p>{props.data[2]}</p></Li>
+            <Li><p>{props.data[3]}</p></Li>
+            <Li><p>{props.data[4]}</p></Li>
+          </Ul>
+          <Ul>
+            <Li><p>{props.data[5]}</p></Li>
+            <Li><p>{props.data[6]}</p></Li>
+            <Li><p>{props.data[7]}</p></Li>
+            <Li><p>{props.data[8]}</p></Li>
+          </Ul>
+        </Div>
+      </MainBody>
+      <Pad></Pad>
+    </Body>
+  );
+};
+
+export default Details;
+
+
 const Body = styled.div`
   margin-top: 100px;
 `;
@@ -36,31 +67,3 @@ const Header = styled.p`
   text-transform: uppercase;
   font-family: AdihausDIN,Helvetica,Arial,sans-serif;
 `;
-
-const Details = (props) => {
-  return (
-    <Body>
-      <Pad></Pad>
-      <MainBody>
-        <Header>SPECIFCATIONS</Header>
-        <Div>
-          <Ul>
-            <Li><p>{props.data[1]}</p></Li>
-            <Li><p>{props.data[2]}</p></Li>
-            <Li><p>{props.data[3]}</p></Li>
-            <Li><p>{props.data[4]}</p></Li>
-          </Ul>
-          <Ul>
-            <Li><p>{props.data[5]}</p></Li>
-            <Li><p>{props.data[6]}</p></Li>
-            <Li><p>{props.data[7]}</p></Li>
-            <Li><p>{props.data[8]}</p></Li>
-          </Ul>
-        </Div>
-      </MainBody>
-      <Pad></Pad>
-    </Body>
-  );
-};
-
-export default Details;

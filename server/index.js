@@ -9,8 +9,8 @@ const port = 4006;
 // const endpoint2 = '/colorChoice';
 const endpoint = '/kix';
 
-// app.use(express.static(path.join(__dirname, '../client/dist')));
-app.use(expressStaticGzip(path.join(__dirname, '../client/dist'), { enableBrotli: true, orderPreference: ['br'] }));
+app.use(express.static(path.join(__dirname, '../client/dist')));
+// app.use(expressStaticGzip(path.join(__dirname, '../client/dist'), { enableBrotli: true, orderPreference: ['br'] }));
 app.use(express.json());
 
 app.get(endpoint, (req, res) => {
@@ -28,7 +28,7 @@ app.post(endpoint, (req, res) => {
     if (err) {
       res.status(404).send();
     } else {
-      console.log(data);
+      // console.log(data);
       res.status(201).send(data);
     }
   });

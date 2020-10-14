@@ -1,73 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Option = styled.nav`
-  display: flex;
-`;
-const Pad = styled.div`
-  flex: 1;
-`;
-const MainBody = styled.div`
-  flex: 4;
-  display: inline-flex;
-  justify-content: center;
-`;
-const Span = styled.span`
-  height:100px;
-  width: auto;
-  // display: flex;
-  padding: 10px;
-  margin-top: 15px;
-  cursor: pointer;
-  justify-content: flex-end;
-  flex-direction: column;
-`;
-const P = styled.p`
-  justify-content: flex-end;
-  flex-direction: column;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-  padding-top: 5px;
-  margin-right: 5px;
-  margin-top: 0px;
-`;
 
-const Img = styled.img`
-  height: 70px;
-  width: auto;
-  display: inline-flex;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 0px;
-  border-left: 0px;
-  border-right: 0px;
-  cursor: pointer;
-  border-left: 0px;
-  border-right: 0px;
-  &:hover {
-    border-bottom: 4px solid black;
-  }
-`;
-const Select = styled.img`
-  height: 70px;
-  width: auto;
-  display: inline-flex;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 0px;
-  border-left: 0px;
-  border-right: 0px;
-  cursor: pointer;
-  border-left: 0px;
-  border-right: 0px;
-  border-bottom: 4px solid black;
-`;
 
 class Options extends React.Component {
   constructor(props) {
@@ -163,3 +97,73 @@ class Options extends React.Component {
 }
 
 export default Options;
+
+
+
+const Option = styled.nav`
+  display: flex;
+`;
+const Pad = styled.div`
+  flex: 1;
+`;
+const MainBody = styled.div`
+  flex: 4;
+  display: inline-flex;
+  justify-content: center;
+`;
+const Span = styled.span`
+  height:100px;
+  width: auto;
+  // display: flex;
+  padding: 10px;
+  margin-top: 15px;
+  cursor: pointer;
+  justify-content: flex-end;
+  flex-direction: column;
+`;
+const P = styled.p`
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  padding-top: 5px;
+  margin-right: 5px;
+  margin-top: 0px;
+`;
+
+const Img = styled.img`
+  height: 70px;
+  width: auto;
+  display: inline-flex;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  cursor: pointer;
+  border-left: 0px;
+  border-right: 0px;
+  &:hover {
+    border-bottom: 4px solid black;
+  }
+`;
+const Select = styled.img`
+  height: 70px;
+  width: auto;
+  display: inline-flex;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  cursor: pointer;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 4px solid black;
+`;

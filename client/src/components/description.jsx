@@ -1,6 +1,29 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
+const Description = (props) => {
+  return (
+    <Div>
+      <Pad></Pad>
+      <MainBody>
+        <Span1>
+          <Header>{props.data.title}</Header>
+          <P1>{props.data.header}</P1>
+          <P2>{props.data.bio}</P2>
+        </Span1>
+        <Span2>
+          <Img src={props.data.img}></Img>
+        </Span2>
+      </MainBody>
+      <Pad></Pad>
+    </Div>
+  );
+};
+
+export default Description;
+
+
 const Div = styled.div`
   display: flex;
   margin-top: 100px;
@@ -32,9 +55,9 @@ const MainBody = styled.div `
   display: inline-flex;
 `;
 const Pad = styled.div`
-  // flex: 1;
-  // margin: 0px;
-  // padding: 0px;
+  flex: 1;
+  margin: 50px;
+  padding: 50px;
 `;
 const P2 = styled.p`
 
@@ -45,24 +68,3 @@ font-weight: bold;
 text-transform: uppercase;
 font-family: AdihausDIN,Helvetica,Arial,sans-serif;
 `;
-
-const Description = (props) => {
-  return (
-    <Div>
-      {/* <Pad></Pad> */}
-      <MainBody>
-        <Span1>
-          <Header>{props.data.title}</Header>
-          <P1>{props.data.header}</P1>
-          <P2>{props.data.bio}</P2>
-        </Span1>
-        <Span2>
-          <Img src={props.data.img}></Img>
-        </Span2>
-      </MainBody>
-      {/* <Pad></Pad> */}
-    </Div>
-  );
-};
-
-export default Description;

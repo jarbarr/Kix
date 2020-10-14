@@ -39,7 +39,7 @@ module.exports = {
 
   fetch: (req, callback) => {
     var shoestyle;
-    console.log(req);
+    // console.log(req);
     if (req.main.includes('SuperStar')) {
       shoestyle = Superstar;
     } else if (req.main.includes('Supernova')) {

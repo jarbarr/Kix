@@ -1,17 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Div = styled.div `
-  position: relative;
-  justify-content: center;
-  width: auto;
-  height: 100px;
-`;
-const Header = styled.p `
-  text-transform: uppercase;
-`;
-const P = styled.p`
-`;
+
 
 class Popup extends React.Component {
   constructor(props) {
@@ -31,3 +21,16 @@ class Popup extends React.Component {
 
 export default Popup;
 
+
+
+const Div = styled.div `
+  position: relative;
+  justify-content: center;
+  width: auto;
+  height: 100px;
+`;
+const Header = styled.p `
+  text-transform: uppercase;
+`;
+const P = styled.p`
+`;

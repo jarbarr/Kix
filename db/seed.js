@@ -100,4 +100,4 @@ const fillDataBase = () => {
 
 };
 
-fillDataBase();
+// fillDataBase();

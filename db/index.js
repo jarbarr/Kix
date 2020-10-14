@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect('mongodb://172.17.0.3:27017/kix', {useNewUrlParser: true});
+mongoose.connect('mongodb://localhost/kix', {useNewUrlParser: true});
 const dbc = mongoose.connection;
 
 dbc.on('error', console.error.bind(console, 'connection error'));

@@ -15,7 +15,10 @@
   "dependencies": {
     "axios": "^0.19.2",
     "babel-jest": "^26.2.2",
+    "brotli-webpack-plugin": "^1.1.0",
+    "compression-webpack-plugin": "^5.0.1",
     "express": "^4.17.1",
+    "express-static-gzip": "^2.0.7",
     "faker": "^4.1.0",
     "jest": "^26.2.2",
     "jest-enzyme": "^7.1.2",
